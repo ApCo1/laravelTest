@@ -12,4 +12,15 @@ class MovieController extends Controller
     {
         return Movie::all();
     }
+
+    public function show($id)
+    {
+        $movie = Movie::where('id', '=', $id)->first();
+        
+        if(!isset($movie)){
+            return response(['message' => 'No movie with the given id']);    
+        }
+
+        return $movie;
+    }
 }

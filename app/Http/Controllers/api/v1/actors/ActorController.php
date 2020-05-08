@@ -12,4 +12,15 @@ class ActorController extends Controller
     {
         return Actor::all();
     }
+
+    public function show($id)
+    {
+        $actor = Actor::where('id', '=', $id)->first();
+        
+        if(!isset($actor)){
+            return response(['message' => 'No actor with the given id']);    
+        }
+
+        return $actor;
+    }
 }

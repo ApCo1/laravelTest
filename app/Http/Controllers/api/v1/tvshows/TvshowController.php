@@ -12,4 +12,15 @@ class TvshowController extends Controller
     {
         return Tvshow::all();
     }
+
+    public function show($id)
+    {
+        $tvshow = Tvshow::where('id', '=', $id)->first();
+        
+        if(!isset($tvshow)){
+            return response(['message' => 'No TV Show with the given id']);    
+        }
+
+        return $tvshow;
+    }
 }
