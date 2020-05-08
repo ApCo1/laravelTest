@@ -24,3 +24,9 @@ Route::prefix('/user')->group(function () {
     Route::post('/register', 'api\v1\LoginController@register');
     Route::middleware('auth:api')->get('/all', 'api\v1\user\UserController@index');
 });
+
+Route::prefix('/get')->group(function () {
+    Route::middleware('auth:api')->get('/movies', 'api\v1\movies\MovieController@index');
+    Route::middleware('auth:api')->get('/tvshows', 'api\v1\tvshows\TvshowController@index');
+    Route::middleware('auth:api')->get('/actors', 'api\v1\actors\ActorController@index');
+});
