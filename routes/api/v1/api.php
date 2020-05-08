@@ -31,3 +31,5 @@ Route::prefix('/get')->group(function () {
     Route::middleware('auth:api')->get('/tvshows', 'api\v1\tvshows\TvshowController@index');
     Route::middleware('auth:api')->get('/actors', 'api\v1\actors\ActorController@index');
 });
+
+
