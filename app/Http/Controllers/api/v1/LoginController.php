@@ -15,9 +15,7 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        $temp = metaphone($validatedData['name']);
-        $validatedData['metaphone'] = $temp;
-
+        $validatedData['metaphone'] = metaphone($validatedData['name']);
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         $user = User::create($validatedData);
