@@ -25,6 +25,7 @@ Route::prefix('/user')->group(function () {
     Route::middleware('auth:api')->get('/all', 'api\v1\user\UserController@index');
 });
 
+//Getters
 Route::prefix('/get')->group(function () {
     Route::middleware('auth:api')->get('/movies', 'api\v1\movies\MovieController@index');
     Route::middleware('auth:api')->get('/tvshows', 'api\v1\tvshows\TvshowController@index');
