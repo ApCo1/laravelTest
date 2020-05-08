@@ -10,7 +10,13 @@ class ActorController extends Controller
 {
     public function index()
     {
-        return Actor::all();
+        $actors = Actor::all();
+
+        if(!empty($actors)){
+            return response(['message' => 'No actors found']);    
+        }
+
+        return $actors;
     }
 
     public function show($id)

@@ -10,7 +10,13 @@ class MovieController extends Controller
 {
     public function index()
     {
-        return Movie::all();
+        $movies = Movie::all();
+
+        if(!empty($movies)){
+            return response(['message' => 'No actors found']);    
+        }
+
+        return $movies;
     }
 
     public function show($id)

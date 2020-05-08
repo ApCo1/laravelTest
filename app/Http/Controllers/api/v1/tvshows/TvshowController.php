@@ -10,7 +10,13 @@ class TvshowController extends Controller
 {
     public function index()
     {
-        return Tvshow::all();
+        $tvshows = Tvshow::all();
+
+        if(!empty($tvshows)){
+            return response(['message' => 'No actors found']);    
+        }
+
+        return $tvshows;
     }
 
     public function show($id)
